@@ -1,0 +1,163 @@
+.scroll-bar {
+  overflow: scroll;
+  overflow-x: hidden;
+}
+.left-box {
+  background: url('../img/bg.gif') no-repeat #ffffff;
+  background-size: 100% 50%;
+  background-position-y: bottom;
+  float: left;
+  width: 16%;
+  height: 100%;
+  /*head*/
+  /*body*/
+}
+.left-box .head {
+  margin-top: 10%;
+}
+.left-box .head img {
+  position: relative;
+  left: 50%;
+  margin-left: -34px;
+  width: 64px;
+  height: 64px;
+  border-radius: 64px;
+  border: 4px solid #d5d5d5;
+}
+.left-box .head .title {
+  text-align: center;
+}
+.left-box .body {
+  margin-top: 10%;
+  width: 80%;
+  height: 30%;
+  margin-left: 10%;
+  background: #f5f5f5;
+}
+.left-box .body a {
+  float: left;
+  width: 100%;
+  height: 36px;
+  text-align: center;
+  line-height: 36px;
+  display: block;
+}
+.left-box .body a:hover {
+  background: #d5d5d5;
+}
+.left-box .body .active {
+  background: #d5d5d5;
+}
+.mid-box {
+  overflow: scroll;
+  overflow-x: hidden;
+  float: left;
+  width: 80%;
+  height: 100%;
+  border-left: 1px solid #dadada;
+  margin-left: -1px;
+  background: #ffffff;
+}
+.mid-box .head {
+  margin-top: 20px;
+  padding-left: 3%;
+}
+.mid-box .head a {
+  font-size: 24px;
+  color: #666;
+}
+.mid-box .body {
+  padding-left: 3%;
+}
+.mid-box .body .item {
+  margin-top: 20px;
+  width: 88%;
+  height: 160px;
+}
+.mid-box .body .item .date {
+  width: 10%;
+  float: left;
+}
+.mid-box .body .item .date .year {
+  width: 66%;
+  height: 50px;
+  border: 2px solid #d5d5d5;
+}
+.mid-box .body .item .date .year p {
+  font-size: 14px;
+  text-align: center;
+  line-height: 25px;
+}
+.mid-box .body .item .date .month {
+  width: 66%;
+  height: 50px;
+  border: 2px solid #d5d5d5;
+  border-top: none;
+}
+.mid-box .body .item .date .month p {
+  font-weight: bold;
+  text-align: center;
+  line-height: 50px;
+}
+.mid-box .body .item .blog {
+  width: 90%;
+  float: right;
+}
+.mid-box .body .item .blog .title a {
+  color: #4f4f4f;
+  font-size: 20px;
+  line-height: 36px;
+}
+.mid-box .body .item .blog .title a:hover {
+  color: #c00;
+}
+.mid-box .body .item .blog .content p {
+  color: #999;
+  font-size: 14px;
+  line-height: 24px;
+  word-wrap: break-word;
+  height: 72px;
+  overflow: hidden;
+}
+.mid-box .body .item .blog .foot {
+  margin-top: 10px;
+  border-top: 1px dashed #d5d5d5;
+  height: 60px;
+  line-height: 60px;
+}
+.mid-box .body .item .blog .foot .tool {
+  float: left;
+}
+.mid-box .body .item .blog .foot .tool span {
+  font-size: 14px;
+  color: #666;
+}
+.mid-box .body .item .blog .foot .original {
+  float: right;
+}
+.mid-box .body .item .blog .foot .original a {
+  font-size: 14px;
+  color: #333;
+}
+.right-box {
+  width: 4%;
+  height: 100%;
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  background: #333;
+  color: #fff;
+}
+.right-box .head {
+  margin-top: 12px;
+  width: 100%;
+  text-align: center;
+}
+.right-box .head ul li {
+  width: 100%;
+  height: 36px;
+  line-height: 36px;
+}
+.right-box .head a {
+  color: white;
+}

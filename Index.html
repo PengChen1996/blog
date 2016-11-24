@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Peng</title>
+    <link rel="stylesheet" href="css/font/css/font-awesome.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery_2.1.4.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="container">
+        <!--左边-->
+        <div class="left-box">
+            <!--head-->
+            <div class="head">
+                <img src="img/exa.jpg" alt="jpg">
+                <div class="title">
+                    <a>FlyingWWS</a>
+                </div>
+            </div>
+            <!--body-->
+            <div class="body">
+                <a href="" class="active">Java</a>
+                <a href="">JavaWeb</a>
+                <a href="">Php</a>
+                <a href="">Html</a>
+                <a href="">JavaScript</a>
+            </div>
+        </div>
+        <!--中间-->
+        <div class="mid-box">
+            <div class="head">
+                <a>My Blog</a>
+            </div>
+            <div class="body">
+                <div class="item">
+                    <div class="date">
+                        <div class="year">
+                            <p>2016</p>
+                            <p>十一</p>
+                        </div>
+                        <div class="month">
+                            <p>19</p>
+                        </div>
+                    </div>
+                    <div class="blog">
+                        <div class="title">
+                            <a href="#">微信公众号用百度车联网API回复天气预报</a>
+                        </div>
+                        <div class="content">
+                            <p>1.申请百度地图开发平台访问应用（AK）; 点创建应用 然后提交，AK就申请好了；
+                                2.然后我们看下百度的车联网API中的天气查询，这是链接车联网API 这是API上面的接口实例
+                                http://api.map.baidu.com/telematics/v3/weather?location=北京&output=json&ak=E4805d16520de693a3fe707cdc9620
+                                1.申请百度地图开发平台访问应用（AK）; 点创建应用 然后提交，AK就申请好了；
+                                2.然后我们看下百度的车联网API中的天气查询，这是链接车联网API 这是API上面的接口实例
+                                http://api.map.baidu.com/telematics/v3/weather?location=北京&output=json&ak=E4805d16520de693a3fe707cdc9620
+                            </p>
+                        </div>
+                        <div class="foot">
+                            <div class="tool">
+                                <span>111</span>
+                                <span>222</span>
+                            </div>
+                            <div class="original">
+                                <a href="#">继续阅读&nbsp;&nbsp;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <!---->
+                <div class="item">
+                    <div class="date">
+                        <div class="year">
+                            <p>2016</p>
+                            <p>十一</p>
+                        </div>
+                        <div class="month">
+                            <p>19</p>
+                        </div>
+                    </div>
+                    <div class="blog">
+                        <div class="title">
+                            <a href="#">微信公众号用百度车联网API回复天气预报</a>
+                        </div>
+                        <div class="content">
+                            <p>1.申请百度地图开发平台访问应用（AK）; 点创建应用 然后提交，AK就申请好了；
+                                2.然后我们看下百度的车联网API中的天气查询，这是链接车联网API 这是API上面的接口实例
+                                http://api.map.baidu.com/telematics/v3/weather?location=北京&output=json&ak=E4805d16520de693a3fe707cdc9620</p>
+                        </div>
+                        <div class="foot">
+                            <div class="tool">
+                                <span>111</span>
+                                <span>222</span>
+                            </div>
+                            <div class="original">
+                                <a href="#">继续阅读&nbsp;&nbsp;</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!---->
+            </div>
+        </div>
+        <!--右边-->
+        <div class="right-box">
+            <div class="head">
+                <ul>
+                    <li><a href=""><i class="fa fa-bars"></i></a></li>
+                    <li><a href="/myblog/html/video.html" target="_blank"><i class="fa fa-video-camera"></i></a></li>
+                    <li><a href="tencent://message/?uin=321566430&Site=qq&Menu=yes"><i class="fa fa-qq"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+    <script type="text/javascript">
+        $.ajax({
+            url:"http://ip.chinaz.com/getip.aspx",
+            type:"post",
+            dataType:"jsonp",
+            success:function(result){
+                $.post('/myblog/php/controller/visitor.php',
+                    {ip: result.ip, address: result.address},
+                    function (msg){
+                        console.log(msg);
+                    }
+                );
+            },error:function(){
+                alert("error");
+            }
+        });
+    </script>
+</html>
