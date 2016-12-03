@@ -6,6 +6,7 @@
 		function m_insert(){
 			$title = $_POST["title"];
 			$content = $_POST["content"];
+			$content =  str_replace ( "'", "\'", $content);		//将字符串中的'(单引号)替换成\'(反斜杠单引号)，保证插入不会出错;
 			$year = date('Y');
 			$array = array('一','二','三','四','五','六','七','八','九','十','十一','十二');
 			$month = $array[date('m')-1];
@@ -23,11 +24,19 @@
 			$pagesize = $_POST['pagesize'];
 			$m = new mysql;
 			$m->link_db("blog");
-			$sqltext = "select * from x_blog where status=0 ORDER BY id desc limit $startcount,$pagesize";
-			$result = $m->excuteSql_read($sqltext);
-			// var_dump($result);
+			$sqltext_blog = "select * from x_blog where status=0 ORDER BY id desc limit $startcount,$pagesize";
+			$result_blog = $m->excuteSql_read($sqltext_blog);
+			// var_dump($result_blog);	//array
+			$sqltext_count = "select * from x_blog where status=0";
+			$result_count = $m->excuteSql_count($sqltext_count);
+			// var_dump($result_count);	//int
+			$arr_result = array();
+			$arr_result['count'] = $result_count;
+			$arr_result['blog'] = $result_blog;
+			// var_dump($arr_result);	//
 			$m->close();
-			return $result;
+			return $arr_result;
 		}
 	}
 ?>
+

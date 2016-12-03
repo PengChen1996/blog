@@ -43,6 +43,17 @@
 			    echo "0 result";
 			}
 		}
+		function excuteSql_count($sql){
+			$result = $this->conn->query($sql);
+			if ($result->num_rows > 0) {
+				$count = $result->num_rows;
+				// var_dump($count);
+				return $count;
+			}
+			else{
+				echo "0 result";
+			}
+		}
 		//关闭 执行完需要关闭数据库
 		function close(){
 			$this->conn->close();
