@@ -111,13 +111,15 @@
 .mid-box .body .item .blog .title a:hover {
   color: #c00;
 }
+.mid-box .body .item .blog .content {
+  word-wrap: break-word;
+  height: 72px;
+  overflow: hidden;
+}
 .mid-box .body .item .blog .content p {
   color: #999;
   font-size: 14px;
   line-height: 24px;
-  word-wrap: break-word;
-  height: 72px;
-  overflow: hidden;
 }
 .mid-box .body .item .blog .foot {
   margin-top: 10px;

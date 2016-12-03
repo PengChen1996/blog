@@ -34,9 +34,11 @@
 			$result = $this->conn->query($sql);
 			if ($result->num_rows > 0) {
 			    // 输出每行数据
+			    $arr = array();
 			    while($row = $result->fetch_assoc()) {
-			        echo "<br>txt: ".$row["name"];
+			    	$arr[$row["id"]] = $row;
 			    }
+			    return $arr;
 			} else {
 			    echo "0 result";
 			}

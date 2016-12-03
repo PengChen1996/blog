@@ -1,21 +1,17 @@
 <?php
-	include "db/mysql.php";
+	include "model/blog_model.php";
+	//http://localhost/myblog/php/uri.php/blog/blog/insert
 
 	class blog{
 		function insert(){
-			$da = $_POST["da"];
-			$m = new mysql;
-			$m->link_db("blog");
-			$sqltext = "insert into x_blog (name) VALUES('$da')";
-			$m->executeSql_insert($sqltext);
-			$m->close();
+			$o = new blog_model;
+			$o->m_insert();
 		}
-		function insert2(){
-			$m = new mysql;
-			$m->link_db("blog");
-			$sqltext = "insert into x_blog (name) VALUES('32323')";
-			$m->executeSql_insert($sqltext);
-			$m->close();
+		function select(){
+			$o = new blog_model;
+			$result = $o->m_select();
+			// var_dump($result);
+			echo json_encode($result);
 		}
 	}
 

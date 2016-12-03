@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>admin</title>
+    <link rel="stylesheet" type="text/css" href="../../wangEditor/css/wangEditor.css">
+    <script type="text/javascript" src="../../js/jquery_2.1.4.js"></script>
+    <script type="text/javascript" src="../../wangEditor/js/wangEditor.js"></script>
+</head>
+<body>
+    <input type="text" id="title" placeholder="标题">
+    <!-- <input type="text" id="content" placeholder="内容"> -->
+    <input type="button" onclick="entry()" value="提交">
+    <div style="width:88%;">
+        <textarea id="content" style="width:100%;height:80%;" >
+            <p>请输入内容...</p>
+        </textarea>
+    </div>
+    
+    <script type="text/javascript">
+        $(function () {
+            var editor = new wangEditor('content');
+            editor.create();
+        });
+    </script>
+
+    <script>
+        function entry(){
+            var title = document.getElementById("title").value;
+            var content = document.getElementById("content").value;
+            var data ={
+                title:title,
+                content:content
+            }
+            $.ajax({
+                url:"/myblog/php/uri.php/blog/blog/insert",
+                type:"post",
+                data:data,
+                success:function(data){
+                    alert(data);
+                    console.log(data);
+                }
+            })
+        }
+    </script>
+</body>
+</html>

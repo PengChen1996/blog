@@ -34,7 +34,7 @@
                 <a>My Blog</a>
             </div>
             <div class="body">
-                <div class="item">
+               <!--  <div class="item">
                     <div class="date">
                         <div class="year">
                             <p>2016</p>
@@ -68,9 +68,9 @@
                         </div>
                     </div>
                 </div>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
                 <!---->
-                <div class="item">
+                <!-- <div class="item">
                     <div class="date">
                         <div class="year">
                             <p>2016</p>
@@ -99,7 +99,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <!---->
             </div>
         </div>
@@ -109,7 +109,7 @@
                 <ul>
                     <li><a href=""><i class="fa fa-bars"></i></a></li>
                     <li><a href="/myblog/html/video.html" title="视频" target="_blank"><i class="fa fa-video-camera"></i></a></li>
-                    <li><a href="http://cpfly.top/myblog/html/chat.html" target="_blank" title="聊天室"><i class="fa fa-comments"></i></a></li>
+                    <li><a href="/myblog/html/chat.html" target="_blank" title="聊天室"><i class="fa fa-comments"></i></a></li>
                     <li><a href="https://github.com/FlyingWWS/myblog/" title="github" target="_blank"><i class="fa fa-github"></i></a></li>
                     <li><a href="tencent://message/?uin=321566430&Site=qq&Menu=yes" title="与我交谈"><i class="fa fa-qq"></i></a></li>
                 </ul>
@@ -117,6 +117,68 @@
         </div>
     </div>
 </body>
+    <script type="text/javascript">
+        window.onload = function(){
+            blog(0,5);
+        }
+        function blog(startcount,pagesize){
+            var data = {
+                startcount:startcount,
+                pagesize:pagesize
+            }
+            $.ajax({
+                url:"/myblog/php/uri.php/blog/blog/select",
+                type:"post",
+                data:data,
+                dataType:"json",
+                success:function(data){
+                    var content = "";
+                    $.each(data,function(index,item){
+                        content =  '<div class="item">'+
+                                            '<div class="date">'+
+                                                '<div class="year">'+
+                                                    '<p>'+item['year']+'</p>'+
+                                                    '<p>'+item['month']+'</p>'+
+                                                '</div>'+
+                                                '<div class="month">'+
+                                                    '<p>'+item['day']+'</p>'+
+                                                '</div>'+
+                                            '</div>'+
+                                            '<div class="blog">'+
+                                                '<div class="title">'+
+                                                    '<a href="#">'+item['title']+'</a>'+
+                                                '</div>'+
+                                                '<div class="content">'+
+                                                    '<p>'+item['content']+'</p>'+
+                                                '</div>'+
+                                                '<div class="foot">'+
+                                                    '<div class="tool">'+
+                                                        '<span>111</span>'+
+                                                        '<span>222</span>'+
+                                                    '</div>'+
+                                                    '<div class="original">'+
+                                                        '<a href="#">继续阅读&nbsp;&nbsp;</a>'+
+                                                    '</div>'+
+                                                '</div>'+
+                                            '</div>'+
+                                        '</div>'+content;   //注意这里加了content;
+                    });
+                    $(".mid-box .body").html(content);
+                    var precount = startcount-pagesize;
+                    console.log("precount:"+precount);
+                    var nextcount = startcount+pagesize;
+                    console.log("nextcount:"+nextcount);
+                    var spiltpage = '<input type="button" value="上一页" onclick=blog('+precount+','+pagesize+')>'
+                                   +'<input type="button" value="下一页" onclick=blog('+nextcount+','+pagesize+')>';
+                    $(".mid-box .body").append(spiltpage);
+                    console.log("success");
+                },
+                error:function(){
+                    console.log("error");
+                }
+            });
+        }
+    </script>
     <script type="text/javascript">
         $.ajax({
             url:"http://ip.chinaz.com/getip.aspx",
