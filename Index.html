@@ -34,7 +34,43 @@
                 <a>My Blog</a>
             </div>
             <div class="body">
-               <!--  <div class="item">
+                <!-- <div class="item">
+                    <div class="date">
+                        <div class="year">
+                            <p>2016</p>
+                            <p>十一</p>
+                        </div>
+                        <div class="month">
+                            <p>19</p>
+                        </div>
+                    </div>
+                    <div class="blog">
+                        <div class="blog_title">
+                            <a href="#">微信公众号用百度车联网API回复天气预报</a>
+                            <div class="blog_record">
+                                <span><i class="fa fa-eye"></i>&nbsp;(100)&nbsp;</span>&nbsp;
+                                <span><i class="fa fa-comment-o"></i>&nbsp;(100)&nbsp;</span>
+                            </div>
+                        </div>
+                        <div class="content">
+                            <p>1.申请百度地图开发平台访问应用（AK）; 点创建应用 然后提交，AK就申请好了；
+                                2.然后我们看下百度的车联网API中的天气查询，这是链接车联网API 这是API上面的接口实例
+                                http://api.map.baidu.com/telematics/v3/weather?location=北京&output=json&ak=E4805d16520de693a3fe707cdc9620
+                                1.申请百度地图开发平台访问应用（AK）; 点创建应用 然后提交，AK就申请好了；
+                                2.然后我们看下百度的车联网API中的天气查询，这是链接车联网API 这是API上面的接口实例
+                                http://api.map.baidu.com/telematics/v3/weather?location=北京&output=json&ak=E4805d16520de693a3fe707cdc9620
+                            </p>
+                        </div>
+                        <div class="blog_foot">
+                            <a>转载请附上链接,O(∩_∩)O谢谢!</a>
+                            <div class="blog_like">
+                                <i class="fa fa-smile-o"></i>&nbsp;<span>100</span>&nbsp;&nbsp;
+                                <i class="fa fa-frown-o"></i>&nbsp;<span>100</span>&nbsp;&nbsp;
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                <!-- <div class="item">
                     <div class="date">
                         <div class="year">
                             <p>2016</p>
@@ -68,39 +104,12 @@
                         </div>
                     </div>
                 </div>
-                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
-                <!---->
-                <!-- <div class="item">
-                    <div class="date">
-                        <div class="year">
-                            <p>2016</p>
-                            <p>十一</p>
-                        </div>
-                        <div class="month">
-                            <p>19</p>
-                        </div>
-                    </div>
-                    <div class="blog">
-                        <div class="title">
-                            <a href="#">微信公众号用百度车联网API回复天气预报</a>
-                        </div>
-                        <div class="content">
-                            <p>1.申请百度地图开发平台访问应用（AK）; 点创建应用 然后提交，AK就申请好了；
-                                2.然后我们看下百度的车联网API中的天气查询，这是链接车联网API 这是API上面的接口实例
-                                http://api.map.baidu.com/telematics/v3/weather?location=北京&output=json&ak=E4805d16520de693a3fe707cdc9620</p>
-                        </div>
-                        <div class="foot">
-                            <div class="tool">
-                                <span>111</span>
-                                <span>222</span>
-                            </div>
-                            <div class="original">
-                                <a href="#">继续阅读&nbsp;&nbsp;</a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="spiltpage">
+                    <i class="fa fa-chevron-left" title="上一页" onclick=blog('+precount+','+pagesize+')></i>
+                    &nbsp;<i>1/</i><i>2</i>&nbsp;
+                    <i class="fa fa-chevron-right" title="下一页" onclick=blog('+nextcount+','+pagesize+')></i>
                 </div> -->
-                <!---->
+                
             </div>
         </div>
         <!--右边-->
@@ -148,32 +157,86 @@
                                             '</div>'+
                                             '<div class="blog">'+
                                                 '<div class="title">'+
-                                                    '<a href="#">'+item['title']+'</a>'+
+                                                    '<a href="#" onclick="blog_one('+item['id']+')">'+item['title']+'</a>'+
                                                 '</div>'+
                                                 '<div class="content">'+
                                                     '<p>'+item['content']+'</p>'+
                                                 '</div>'+
                                                 '<div class="foot">'+
                                                     '<div class="tool">'+
-                                                        '<span>111</span>'+
-                                                        '<span>222</span>'+
+                                                        '<i class="fa fa-eye"></i><span>(100)</span>&nbsp;'+
+                                                        '<i class="fa fa-comment-o"></i><span>(100)</span>&nbsp;'+
                                                     '</div>'+
                                                     '<div class="original">'+
-                                                        '<a href="#">继续阅读&nbsp;&nbsp;</a>'+
+                                                        '<a onclick="blog_one('+item['id']+')">继续阅读&nbsp;&nbsp;</a>'+
                                                     '</div>'+
                                                 '</div>'+
                                             '</div>'+
                                         '</div>'+content;   //注意这里加了content;
                     });
                     $(".mid-box .body").html(content);
+                    var current = (startcount/pagesize)+1;
+                    var total = parseInt(data.count/pagesize)+((data.count%pagesize)>0?1:0);
                     var precount = (startcount-pagesize)<0 ? 0:(startcount-pagesize);
                     console.log("precount:"+precount);
                     var nextcount = (startcount+pagesize)>=data.count?startcount:(startcount+pagesize);
                     console.log("nextcount:"+nextcount);
-                    var spiltpage = '<input type="button" value="上一页" onclick=blog('+precount+','+pagesize+')>'
-                                   +'<input type="button" value="下一页" onclick=blog('+nextcount+','+pagesize+')>';
+                    var spiltpage = '<div class="spiltpage">'+
+                                        '<i class="fa fa-chevron-left" title="上一页" onclick=blog('+precount+','+pagesize+')></i>'+
+                                        '&nbsp;<i>'+current+'/</i><i>'+total+'</i>&nbsp;'+
+                                        '<i class="fa fa-chevron-right" title="下一页" onclick=blog('+nextcount+','+pagesize+')></i>'+
+                                    '</div>';
                     $(".mid-box .body").append(spiltpage);
                     console.log("success");
+                },
+                error:function(){
+                    console.log("error");
+                }
+            });
+        }
+
+        function blog_one(id){
+            var data = {
+                id:id
+            }
+            $.ajax({
+                url:"/myblog/php/uri.php/blog/blog/select_one",
+                type:"post",
+                dataType:"json",
+                data:data,
+                success:function(data){
+                    var blogone = '<div class="item">'+
+                                        '<div class="date">'+
+                                            '<div class="year">'+
+                                                '<p>'+data[id]['year']+'</p>'+
+                                                '<p>'+data[id]['month']+'</p>'+
+                                            '</div>'+
+                                            '<div class="month">'+
+                                                '<p>'+data[id]['day']+'</p>'+
+                                            '</div>'+
+                                        '</div>'+
+                                        '<div class="blog">'+
+                                            '<div class="blog_title">'+
+                                                '<a href="#">'+data[id]['title']+'</a>'+
+                                                '<div class="blog_record">'+
+                                                    '<span><i class="fa fa-eye"></i>&nbsp;(100)&nbsp;</span>&nbsp;'+
+                                                    '<span><i class="fa fa-comment-o"></i>&nbsp;(100)&nbsp;</span>'+
+                                                '</div>'+
+                                            '</div>'+
+                                            '<div class="content" style="height:auto;">'+
+                                                '<p>'+data[id]['content']+'</p>'+
+                                            '</div>'+
+                                            '<div class="blog_foot">'+
+                                                '<a>转载请附上链接,O(∩_∩)O谢谢!</a>'+
+                                                '<div class="blog_like">'+
+                                                    '<i class="fa fa-smile-o"></i>&nbsp;<span>100</span>&nbsp;&nbsp;'+
+                                                    '<i class="fa fa-frown-o"></i>&nbsp;<span>100</span>&nbsp;&nbsp;'+
+                                                '</div>'+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>';
+                     $(".mid-box .body").html(blogone);
+                    console.log(data);
                 },
                 error:function(){
                     console.log("error");

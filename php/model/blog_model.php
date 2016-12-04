@@ -6,7 +6,7 @@
 		function m_insert(){
 			$title = $_POST["title"];
 			$content = $_POST["content"];
-			$content =  str_replace ( "'", "\'", $content);		//将字符串中的'(单引号)替换成\'(反斜杠单引号)，保证插入不会出错;
+			// $content =  str_replace ( "'", "\'", $content);		//将字符串中的'(单引号)替换成\'(反斜杠单引号)，保证插入不会出错;
 			$year = date('Y');
 			$array = array('一','二','三','四','五','六','七','八','九','十','十一','十二');
 			$month = $array[date('m')-1];
@@ -36,6 +36,15 @@
 			// var_dump($arr_result);	//
 			$m->close();
 			return $arr_result;
+		}
+		function m_select_one(){
+			$m = new mysql;
+			$m->link_db("blog");
+			$id = $_POST['id'];
+			$sqltext ="select * from x_blog where id=$id";
+			$result = $m->excuteSql_read($sqltext);
+			$m->close();
+			return $result;
 		}
 	}
 ?>

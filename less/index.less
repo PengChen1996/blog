@@ -68,7 +68,7 @@
   .body{
     padding-left: @padding-left;
     .item{
-      margin-top: 20px;
+      margin-top: 30px;
       width: 88%;
       height: 160px;
       //background: #f5f5f5;
@@ -115,7 +115,7 @@
           height:72px;
           overflow: hidden;
           p{
-            color: #999;
+            color: #666;
             font-size: 14px;
             line-height: 24px;
           }
@@ -127,9 +127,9 @@
           line-height: 60px;
           .tool{
             float: left;
-            span{
-              font-size: 14px;
-              color: #666;
+            i,span{
+              font-size: 14px !important;
+              color: #999;
             }
           }
           .original{
@@ -138,10 +138,69 @@
               font-size: 14px;
               color:#333;
             }
+            a:hover{
+              cursor: pointer;
+              color: #ff6000;
+            }
           }
         }
+        /*完整的blog*/
+        .blog_title{
+          height:120px;
+          border-bottom:1px dashed #d5d5d5;
+          margin-bottom: 20px;
+          a{
+            color: #4f4f4f;
+            font-size:20px;
+            line-height: 36px;
+          }
+          a:hover{
+            color:#c00;
+          }
+          .blog_record{
+            height:84px;
+            line-height: 84px;
+            span{
+              font-size: 16px;
+              color:#999;
+            }
+          }
+        }
+        .blog_foot{
+          margin-top: 20px;
+          border-bottom: 1px solid #666;
+          a{
+            color:#c00;
+          }
+          .blog_like{
+            height:160px;
+            line-height: 160px;
+            text-align: center;
+            i{
+              font-size: 36px !important;
+              color: #999;
+            }
+            i:hover{
+              color: #c00000;
+            }
+            span{
+              color: #666;
+            }
+          }
+        }
+        /*---*/
       }
     }
+    .spiltpage{
+       float: right;
+       margin-right: 50%;
+       margin-top: 20px;
+       margin-bottom: 60px;
+       i{
+         font-size: 24px !important;
+         color: #666;
+       }
+     }
   }
 }
 

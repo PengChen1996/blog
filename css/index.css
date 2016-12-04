@@ -70,7 +70,7 @@
   padding-left: 3%;
 }
 .mid-box .body .item {
-  margin-top: 20px;
+  margin-top: 30px;
   width: 88%;
   height: 160px;
 }
@@ -102,6 +102,8 @@
 .mid-box .body .item .blog {
   width: 90%;
   float: right;
+  /*完整的blog*/
+  /*---*/
 }
 .mid-box .body .item .blog .title a {
   color: #4f4f4f;
@@ -117,7 +119,7 @@
   overflow: hidden;
 }
 .mid-box .body .item .blog .content p {
-  color: #999;
+  color: #666;
   font-size: 14px;
   line-height: 24px;
 }
@@ -130,9 +132,10 @@
 .mid-box .body .item .blog .foot .tool {
   float: left;
 }
+.mid-box .body .item .blog .foot .tool i,
 .mid-box .body .item .blog .foot .tool span {
-  font-size: 14px;
-  color: #666;
+  font-size: 14px !important;
+  color: #999;
 }
 .mid-box .body .item .blog .foot .original {
   float: right;
@@ -140,6 +143,63 @@
 .mid-box .body .item .blog .foot .original a {
   font-size: 14px;
   color: #333;
+}
+.mid-box .body .item .blog .foot .original a:hover {
+  cursor: pointer;
+  color: #ff6000;
+}
+.mid-box .body .item .blog .blog_title {
+  height: 120px;
+  border-bottom: 1px dashed #d5d5d5;
+  margin-bottom: 20px;
+}
+.mid-box .body .item .blog .blog_title a {
+  color: #4f4f4f;
+  font-size: 20px;
+  line-height: 36px;
+}
+.mid-box .body .item .blog .blog_title a:hover {
+  color: #c00;
+}
+.mid-box .body .item .blog .blog_title .blog_record {
+  height: 84px;
+  line-height: 84px;
+}
+.mid-box .body .item .blog .blog_title .blog_record span {
+  font-size: 16px;
+  color: #999;
+}
+.mid-box .body .item .blog .blog_foot {
+  margin-top: 20px;
+  border-bottom: 1px solid #666;
+}
+.mid-box .body .item .blog .blog_foot a {
+  color: #c00;
+}
+.mid-box .body .item .blog .blog_foot .blog_like {
+  height: 160px;
+  line-height: 160px;
+  text-align: center;
+}
+.mid-box .body .item .blog .blog_foot .blog_like i {
+  font-size: 36px !important;
+  color: #999;
+}
+.mid-box .body .item .blog .blog_foot .blog_like i:hover {
+  color: #c00000;
+}
+.mid-box .body .item .blog .blog_foot .blog_like span {
+  color: #666;
+}
+.mid-box .body .spiltpage {
+  float: right;
+  margin-right: 50%;
+  margin-top: 20px;
+  margin-bottom: 60px;
+}
+.mid-box .body .spiltpage i {
+  font-size: 24px !important;
+  color: #666;
 }
 .right-box {
   width: 4%;

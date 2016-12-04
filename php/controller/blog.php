@@ -13,6 +13,12 @@
 			// var_dump($result);
 			echo json_encode($result);
 		}
+		function select_one(){
+			$o = new blog_model;
+			$result = $o->m_select_one();
+			// var_dump($result);
+			echo json_encode($result);
+		}
 	}
 
 ?>
