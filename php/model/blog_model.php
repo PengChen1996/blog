@@ -6,7 +6,7 @@
 		function m_insert(){
 			$title = $_POST["title"];
 			$content = $_POST["content"];
-			// $content =  str_replace ( "'", "\'", $content);		//将字符串中的'(单引号)替换成\'(反斜杠单引号)，保证插入不会出错;
+			$content =  str_replace ( "'", "\'", $content);		//将字符串中的'(单引号)替换成\'(反斜杠单引号)，保证插入不会出错;
 			$year = date('Y');
 			$array = array('一','二','三','四','五','六','七','八','九','十','十一','十二');
 			$month = $array[date('m')-1];
