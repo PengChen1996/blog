@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /css/
+Disallow: /file/
+Disallow: /img/
+Disallow: /js/
+Disallow: /less/
+Disallow: /wangEditor/

@@ -15,7 +15,8 @@
 
 			$m = new mysql;
 			$m->link_db("blog");
-			$sqltext= "insert into x_blog (title,content,year,month,day,his,status) VALUES('$title','$content','$year','$month','$day','$his',0)";
+			$sqltext= "insert into x_blog (title,content,year,month,day,his,eye,comment,voted,unvoted,status) 
+					VALUES ('$title','$content','$year','$month','$day','$his',1,1,1,0,0)";
 			$m->executeSql_insert($sqltext);
 			$m->close();
 		}

@@ -2,7 +2,10 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Peng</title>
+    <title>FlyingWWS,陈鹏个人博客,一个进击路上的程序猿————分享学习web技术的个人博客网站</title>
+    <meta name="keywords" content="FlyingWWS,FlyingWithoutWings,个人博客,陈鹏个人博客,前端开发,web前端,html,html5,css,javascript,php,java,javaee"/>
+    <meta name="description" content="陈鹏个人博客,一个进击路上的程序猿————分享学习web技术的个人博客网站。记录一些自己在学习过程中的经验。"/>
+    
     <link rel="stylesheet" href="css/font/css/font-awesome.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/index.css">
@@ -22,11 +25,11 @@
             </div>
             <!--body-->
             <div class="body">
-                <a href="" class="active">Java</a>
-                <a href="">JavaWeb</a>
-                <a href="">Php</a>
-                <a href="">Html</a>
-                <a href="">JavaScript</a>
+                <a class="active">Java</a>
+                <a >JavaWeb</a>
+                <a >Php</a>
+                <a >Html</a>
+                <a >JavaScript</a>
             </div>
         </div>
         <!--中间-->
@@ -73,7 +76,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> 
                 <!-- <div class="item">
                     <div class="date">
                         <div class="year">
@@ -121,8 +124,8 @@
             <div class="head">
                 <ul>
                     <li><a href=""><i class="fa fa-bars"></i></a></li>
-                    <li><a href="/myblog/html/video.html" title="视频" target="_blank"><i class="fa fa-video-camera"></i></a></li>
-                    <li><a href="/myblog/html/chat.html" target="_blank" title="聊天室"><i class="fa fa-comments"></i></a></li>
+                    <!-- <li><a href="/myblog/html/video.html" title="视频" target="_blank"><i class="fa fa-video-camera"></i></a></li> -->
+                    <!-- <li><a href="/myblog/html/chat.html" target="_blank" title="聊天室"><i class="fa fa-comments"></i></a></li> -->
                     <li><a href="https://github.com/FlyingWWS/myblog/" title="github" target="_blank"><i class="fa fa-github"></i></a></li>
                     <li><a href="tencent://message/?uin=321566430&Site=qq&Menu=yes" title="与我交谈"><i class="fa fa-qq"></i></a></li>
                 </ul>
@@ -168,8 +171,8 @@
                                                 '</div>'+
                                                 '<div class="foot">'+
                                                     '<div class="tool">'+
-                                                        '<i class="fa fa-eye"></i><span>(100)</span>&nbsp;'+
-                                                        '<i class="fa fa-comment-o"></i><span>(100)</span>&nbsp;'+
+                                                        '<i class="fa fa-eye"></i><span>('+item['eye']+')</span>&nbsp;'+
+                                                        '<i class="fa fa-comment-o"></i><span>('+item['comment']+')</span>&nbsp;'+
                                                     '</div>'+
                                                     '<div class="original">'+
                                                         '<a onclick="blog_one('+item['id']+')">继续阅读&nbsp;&nbsp;</a>'+
@@ -223,8 +226,8 @@
                                             '<div class="blog_title">'+
                                                 '<a href="#">'+data[id]['title']+'</a>'+
                                                 '<div class="blog_record">'+
-                                                    '<span><i class="fa fa-eye"></i>&nbsp;(100)&nbsp;</span>&nbsp;'+
-                                                    '<span><i class="fa fa-comment-o"></i>&nbsp;(100)&nbsp;</span>'+
+                                                    '<span><i class="fa fa-eye"></i>&nbsp;('+data[id]['eye']+')&nbsp;</span>&nbsp;'+
+                                                    '<span><i class="fa fa-comment-o"></i>&nbsp;('+data[id]['comment']+')&nbsp;</span>'+
                                                 '</div>'+
                                             '</div>'+
                                             '<div class="content" style="height:auto;">'+
@@ -233,8 +236,8 @@
                                             '<div class="blog_foot">'+
                                                 '<a>转载请附上链接,O(∩_∩)O谢谢!</a>'+
                                                 '<div class="blog_like">'+
-                                                    '<i class="fa fa-smile-o"></i>&nbsp;<span>100</span>&nbsp;&nbsp;'+
-                                                    '<i class="fa fa-frown-o"></i>&nbsp;<span>100</span>&nbsp;&nbsp;'+
+                                                    '<i class="fa fa-smile-o"></i>&nbsp;<span>'+data[id]['voted']+'</span>&nbsp;&nbsp;'+
+                                                    '<i class="fa fa-frown-o"></i>&nbsp;<span>'+data[id]['unvoted']+'</span>&nbsp;&nbsp;'+
                                                 '</div>'+
                                             '</div>'+
                                         '</div>'+
